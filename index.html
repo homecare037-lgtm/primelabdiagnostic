@@ -1,27 +1,160 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Prime Lab Diagnostic</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+
 <style>
-body{font-family:Arial;text-align:center;background:#f5f5f5;padding:30px}
-h1{color:#0b5fae}
-a{display:inline-block;padding:15px 25px;background:#25D366;color:#fff;text-decoration:none;border-radius:8px}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+font-family:Arial,sans-serif;
+background:#f5f8fc;
+color:#222;
+}
+header{
+background:#0b5fae;
+color:#fff;
+padding:40px 20px;
+text-align:center;
+}
+header h1{
+font-size:38px;
+}
+header p{
+margin-top:10px;
+font-size:18px;
+}
+.container{
+width:90%;
+max-width:1100px;
+margin:auto;
+padding:30px 0;
+}
+.card{
+background:#fff;
+border-radius:15px;
+padding:25px;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+margin-bottom:20px;
+}
+.btn{
+display:inline-block;
+padding:14px 25px;
+border-radius:8px;
+text-decoration:none;
+font-weight:bold;
+margin:8px;
+}
+.whatsapp{background:#25D366;color:white;}
+.call{background:#0b5fae;color:white;}
+.map{background:#d32f2f;color:white;}
+.tests{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+gap:15px;
+margin-top:20px;
+}
+.test{
+background:#eef7ff;
+padding:18px;
+border-radius:10px;
+text-align:center;
+font-weight:bold;
+}
+footer{
+background:#0b5fae;
+color:white;
+text-align:center;
+padding:20px;
+margin-top:30px;
+}
 </style>
+
 </head>
 <body>
 
+<header>
+
 <h1>Prime Lab Diagnostic</h1>
 
-<h3>🏠 Home Blood Sample Collection</h3>
+<p>Home Blood Sample Collection</p>
 
-<p>📍 LB Nagar, Hyderabad</p>
+</header>
 
-<p>🕕 6:00 AM – 1:00 PM</p>
+<div class="container">
 
-<p>CBC | FBS | PLBS | HbA1c | Thyroid | Dengue | Malaria | Typhoid</p>
+<div class="card">
 
-<a href="https://wa.me/918712366855">Book on WhatsApp</a>
+<h2>🏥 Welcome</h2>
+
+<br>
+
+<p>
+Fast • Safe • Accurate Blood Testing
+at your Doorstep.
+</p>
+
+<br>
+
+<a class="btn whatsapp"
+href="https://wa.me/918712366855">
+WhatsApp Booking
+</a>
+
+<a class="btn call"
+href="tel:8712366855">
+Call Now
+</a>
+
+<a class="btn map"
+href="https://maps.google.com">
+Location
+</a>
+
+</div>
+
+<div class="card">
+
+<h2>Popular Tests</h2>
+
+<div class="tests">
+
+<div class="test">CBC</div>
+
+<div class="test">FBS</div>
+
+<div class="test">PLBS</div>
+
+<div class="test">HbA1c</div>
+
+<div class="test">Dengue</div>
+
+<div class="test">Malaria</div>
+
+<div class="test">Typhoid</div>
+
+<div class="test">Thyroid</div>
+
+<div class="test">LFT</div>
+
+<div class="test">KFT</div>
+
+<div class="test">Vitamin D</div>
+
+<div class="test">Vitamin B12</div>
+
+</div>
+
+</div>
+
+<footer>
+
+Prime Lab Diagnostic<br>
+
+LB Nagar, Hyderabad
+
+</footer>
 
 </body>
 </html>
