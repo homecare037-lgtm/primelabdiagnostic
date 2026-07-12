@@ -2,159 +2,79 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Prime Lab Diagnostic</title>
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{
-font-family:Arial,sans-serif;
-background:#f5f8fc;
-color:#222;
-}
-header{
-background:#0b5fae;
-color:#fff;
-padding:40px 20px;
-text-align:center;
-}
-header h1{
-font-size:38px;
-}
-header p{
-margin-top:10px;
-font-size:18px;
-}
-.container{
-width:90%;
-max-width:1100px;
-margin:auto;
-padding:30px 0;
-}
-.card{
-background:#fff;
-border-radius:15px;
-padding:25px;
-box-shadow:0 5px 20px rgba(0,0,0,.08);
-margin-bottom:20px;
-}
-.btn{
-display:inline-block;
-padding:14px 25px;
-border-radius:8px;
-text-decoration:none;
-font-weight:bold;
-margin:8px;
-}
-.whatsapp{background:#25D366;color:white;}
-.call{background:#0b5fae;color:white;}
-.map{background:#d32f2f;color:white;}
-.tests{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
-gap:15px;
-margin-top:20px;
-}
-.test{
-background:#eef7ff;
-padding:18px;
-border-radius:10px;
-text-align:center;
-font-weight:bold;
-}
-footer{
-background:#0b5fae;
-color:white;
-text-align:center;
-padding:20px;
-margin-top:30px;
-}
+body{margin:0;font-family:Arial;background:#f4f8fb}
+header{background:#0b72b9;color:#fff;padding:40px 20px;text-align:center}
+header h1{margin:0;font-size:38px}
+header p{font-size:18px}
+.container{width:90%;max-width:1100px;margin:auto;padding:20px}
+.card{background:#fff;padding:20px;border-radius:12px;margin:20px 0;box-shadow:0 2px 10px rgba(0,0,0,.1)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:15px}
+.item{background:#eef7ff;padding:15px;border-radius:8px;text-align:center;font-weight:bold}
+.btn{display:inline-block;background:#25D366;color:#fff;padding:15px 25px;border-radius:8px;text-decoration:none;font-weight:bold}
+footer{background:#0b72b9;color:#fff;text-align:center;padding:20px;margin-top:30px}
+.float{position:fixed;bottom:20px;right:20px;background:#25D366;color:#fff;width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;text-decoration:none}
 </style>
-
 </head>
 <body>
 
 <header>
-
 <h1>Prime Lab Diagnostic</h1>
-
 <p>Home Blood Sample Collection</p>
-
 </header>
 
 <div class="container">
 
 <div class="card">
-
-<h2>🏥 Welcome</h2>
-
+<h2>Book Home Collection</h2>
+<p>Morning 6:00 AM - 1:00 PM</p>
+<p>₹100 Home Collection Charge</p>
 <br>
-
-<p>
-Fast • Safe • Accurate Blood Testing
-at your Doorstep.
-</p>
-
-<br>
-
-<a class="btn whatsapp"
-href="https://wa.me/918712366855">
-WhatsApp Booking
-</a>
-
-<a class="btn call"
-href="tel:8712366855">
-Call Now
-</a>
-
-<a class="btn map"
-href="https://maps.google.com">
-Location
-</a>
-
+<a class="btn" href="https://wa.me/918712366855">Book on WhatsApp</a>
 </div>
 
 <div class="card">
+<h2>Popular Blood Tests</h2>
+<div class="grid">
+<div class="item">CBC</div>
+<div class="item">FBS</div>
+<div class="item">PLBS</div>
+<div class="item">HbA1c</div>
+<div class="item">Thyroid</div>
+<div class="item">LFT</div>
+<div class="item">KFT</div>
+<div class="item">Vitamin D</div>
+<div class="item">Vitamin B12</div>
+<div class="item">Dengue</div>
+<div class="item">Malaria</div>
+<div class="item">Typhoid</div>
+</div>
+</div>
 
-<h2>Popular Tests</h2>
+<div class="card">
+<h2>Why Choose Us?</h2>
+<p>✔ Accurate Reports</p>
+<p>✔ Home Blood Sample Collection</p>
+<p>✔ Experienced Staff</p>
+<p>✔ Affordable Prices</p>
+<p>✔ Fast Report Delivery</p>
+</div>
 
-<div class="tests">
-
-<div class="test">CBC</div>
-
-<div class="test">FBS</div>
-
-<div class="test">PLBS</div>
-
-<div class="test">HbA1c</div>
-
-<div class="test">Dengue</div>
-
-<div class="test">Malaria</div>
-
-<div class="test">Typhoid</div>
-
-<div class="test">Thyroid</div>
-
-<div class="test">LFT</div>
-
-<div class="test">KFT</div>
-
-<div class="test">Vitamin D</div>
-
-<div class="test">Vitamin B12</div>
-
+<div class="card">
+<h2>Contact</h2>
+<p>📍 LB Nagar, Hyderabad</p>
+<p>📱 WhatsApp: 8712366855</p>
 </div>
 
 </div>
 
 <footer>
-
-Prime Lab Diagnostic<br>
-
-LB Nagar, Hyderabad
-
+Prime Lab Diagnostic © 2026
 </footer>
+
+<a class="float" href="https://wa.me/918712366855">💬</a>
 
 </body>
 </html>
