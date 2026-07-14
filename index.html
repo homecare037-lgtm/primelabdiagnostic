@@ -301,6 +301,47 @@ style="display:inline-block;margin-top:15px;padding:12px 25px;background:#25D366
 
 </div>
 <div class="card">
+
+<h2>🔍 Search Test</h2>
+
+<input
+type="text"
+id="searchInput"
+onkeyup="searchTests()"
+placeholder="Search Test (e.g. CBC, Sugar, Thyroid)"
+style="width:100%;padding:12px;border:1px solid #ccc;border-radius:8px;">
+
+<ul id="testList" style="margin-top:15px;line-height:2;">
+<li>CBC Test</li>
+<li>Blood Sugar Test</li>
+<li>Thyroid Profile</li>
+<li>Lipid Profile</li>
+<li>Vitamin D Test</li>
+<li>Vitamin B12 Test</li>
+<li>Liver Function Test (LFT)</li>
+<li>Kidney Function Test (KFT)</li>
+<li>HbA1c Test</li>
+<li>Dengue Test</li>
+<li>Malaria Test</li>
+</ul>
+
+</div>
+
+<script>
+function searchTests() {
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let items = document.querySelectorAll("#testList li");
+
+  items.forEach(function(item) {
+    if (item.innerText.toLowerCase().includes(input)) {
+      item.style.display = "";
+    } else {
+      item.style.display = "none";
+    }
+  });
+}
+</script>
+<div class="card">
 <h2>📝 Book Appointment</h2>
 
 <form onsubmit="sendWhatsApp(); return false;">
