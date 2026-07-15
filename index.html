@@ -543,7 +543,36 @@ box-shadow:0 2px 8px rgba(0,0,0,.3);
 </a>
 
 </div>
+<!-- Floating Call Button -->
+<a href="tel:+918712366855" class="call-btn">
+📞
+</a>
 
+<style>
+.call-btn{
+position:fixed;
+bottom:90px;
+right:20px;
+width:60px;
+height:60px;
+background:#007bff;
+color:#fff;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+text-decoration:none;
+box-shadow:0 4px 10px rgba(0,0,0,.3);
+z-index:9999;
+transition:.3s;
+}
+
+.call-btn:hover{
+transform:scale(1.1);
+background:#0056b3;
+}
+</style>
 </body>
 
 </html>
