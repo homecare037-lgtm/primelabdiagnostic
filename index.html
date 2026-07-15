@@ -620,50 +620,5 @@ behavior:"smooth"
 }
 </script>
 </body>
-<!-- Back To Top Button -->
-<button onclick="topFunction()" id="topBtn">⬆️</button>
 
-<style>
-#topBtn{
-display:none;
-position:fixed;
-bottom:160px;
-right:20px;
-z-index:9999;
-border:none;
-outline:none;
-background:#ff5722;
-color:white;
-cursor:pointer;
-padding:14px 18px;
-border-radius:50%;
-font-size:22px;
-box-shadow:0 4px 10px rgba(0,0,0,.3);
-transition:.3s;
-}
-
-#topBtn:hover{
-background:#e64a19;
-transform:scale(1.1);
-}
-</style>
-
-<script>
-let topbutton=document.getElementById("topBtn");
-
-window.onscroll=function(){
-if(document.body.scrollTop>300||document.documentElement.scrollTop>300){
-topbutton.style.display="block";
-}else{
-topbutton.style.display="none";
-}
-};
-
-function topFunction(){
-window.scrollTo({
-top:0,
-behavior:"smooth"
-});
-}
-</script>
 </html>
