@@ -356,6 +356,27 @@ function searchTests() {
     }
   });
 }
+function searchTests() {
+
+let input=document.getElementById("searchInput").value.toLowerCase();
+
+let items=document.querySelectorAll("#testList .item");
+
+items.forEach(function(item){
+
+if(item.innerText.toLowerCase().indexOf(input)>-1){
+
+item.style.display="block";
+
+}else{
+
+item.style.display="none";
+
+}
+
+});
+
+}
 </script>
 <div class="card">
 
