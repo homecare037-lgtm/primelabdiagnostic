@@ -486,18 +486,50 @@ style="width:100%;padding:14px;background:#0b72b9;color:white;border:none;border
 
 <script>
 
-function updatePrice(){
+function filterTests(){
 
-var test=document.getElementById("test");
-var price=test.options[test.selectedIndex].getAttribute("data-price");
+let input=document.getElementById("searchTest").value.toLowerCase();
 
-if(price){
-document.getElementById("price").value="₹"+price;
+let labels=document.querySelectorAll("#testContainer label");
+
+labels.forEach(function(label){
+
+if(label.innerText.toLowerCase().includes(input)){
+label.style.display="block";
 }else{
-document.getElementById("price").value="";
+label.style.display="none";
 }
 
+});
+
 }
+
+function calculateTotal(){
+
+let total=0;
+
+let tests=[];
+
+document.querySelectorAll("#testContainer input[type=checkbox]").forEach(function(cb){
+
+if(cb.checked){
+
+total+=parseInt(cb.dataset.price);
+
+tests.push(cb.value);
+
+}
+
+});
+
+document.getElementById("totalAmount").value="₹"+total;
+
+window.selectedTests=tests.join(", ");
+
+}
+
+
+
 
 function sendWhatsApp(){
 
@@ -505,30 +537,35 @@ var name=document.getElementById("name").value;
 var mobile=document.getElementById("mobile").value;
 var age=document.getElementById("age").value;
 var doctor=document.getElementById("doctor").value;
-var test=document.getElementById("test").value;
-var price=document.getElementById("price").value;
+
 var payment=document.getElementById("payment").value;
+
 var address=document.getElementById("address").value;
+
 var date=document.getElementById("date").value;
 
-var status="Pending";
+var amount=document.getElementById("totalAmount").value;
 
-if(payment=="Online Payment"){
-status="Completed";
-}
+var status=(payment=="Online Payment")?"Completed":"Pending";
 
-var msg=
-"📋 *NEW PRIME LAB APPOINTMENT*%0A%0A"+
-"👤 Patient Name : "+name+
-"%0A📞 Mobile : "+mobile+
-"%0A🎂 Age : "+age+
-"%0A👨‍⚕️ Doctor / Self : "+doctor+
-"%0A%0A🧪 Test : "+test+
-"%0A💰 Amount : "+price+
-"%0A%0A💳 Payment : "+payment+
-"%0A✅ Payment Status : "+status+
-"%0A%0A📍 Address : "+address+
-"%0A📅 Preferred Date : "+date;
+var msg="📋 *NEW PRIME LAB APPOINTMENT*%0A%0A";
+
+msg+="👤 Patient : "+name;
+msg+="%0A📞 Mobile : "+mobile;
+msg+="%0A🎂 Age : "+age;
+msg+="%0A👨‍⚕️ Doctor / Self : "+doctor;
+
+msg+="%0A%0A🧪 Tests : "+window.selectedTests;
+
+msg+="%0A💰 Total Amount : "+amount;
+
+msg+="%0A💳 Payment : "+payment;
+
+msg+="%0A✅ Payment Status : "+status;
+
+msg+="%0A🏠 Address : "+address;
+
+msg+="%0A📅 Date : "+date;
 
 window.open("https://wa.me/918712366855?text="+msg,"_blank");
 
