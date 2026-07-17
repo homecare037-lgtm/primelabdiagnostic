@@ -409,18 +409,55 @@ Online Report Service will be available soon.
 
 <form onsubmit="sendWhatsApp(); return false;">
 
-<input id="name" type="text" placeholder="Your Name"
+<input id="name" type="text" placeholder="👤 Patient Name"
 style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;" required>
 
-<input id="mobile" type="tel" placeholder="Mobile Number"
+<input id="mobile" type="tel" placeholder="📞 Mobile Number"
 style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;" required>
+
+<input id="age" type="number" placeholder="🎂 Age"
+style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;" required>
+
+<input id="doctor" type="text" placeholder="👨‍⚕️ Doctor Name / Self"
+style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;" required>
+
+<select id="test"
+style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;" onchange="updatePrice()" required>
+
+<option value="">🧪 Select Test</option>
+
+<option value="CBC Test" data-price="350">CBC Test</option>
+<option value="Blood Sugar Test" data-price="150">Blood Sugar Test</option>
+<option value="Thyroid Profile" data-price="650">Thyroid Profile</option>
+<option value="Lipid Profile" data-price="700">Lipid Profile</option>
+<option value="Vitamin D Test" data-price="1200">Vitamin D Test</option>
+<option value="HbA1c Test" data-price="450">HbA1c Test</option>
+
+</select>
+
+<input id="price" type="text" placeholder="💰 Test Price"
+style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;background:#f5f5f5;" readonly>
+
+<select id="payment"
+style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;" required>
+
+<option value="">💳 Select Payment Method</option>
+<option>Online Payment</option>
+<option>Offline Payment</option>
+
+</select>
+
+<textarea id="address"
+placeholder="📍 Full Address"
+style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;height:90px;"
+required></textarea>
 
 <input id="date" type="date"
 style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;" required>
 
 <button type="submit"
 style="width:100%;padding:14px;background:#0b72b9;color:white;border:none;border-radius:8px;font-size:18px;">
-Submit
+✅ Submit Appointment
 </button>
 
 </form>
