@@ -421,22 +421,43 @@ style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #
 <input id="doctor" type="text" placeholder="👨‍⚕️ Doctor Name / Self"
 style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;" required>
 
-<select id="test"
-style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;" onchange="updatePrice()" required>
+<h3>🧪 Select Tests</h3>
 
-<option value="">🧪 Select Test</option>
+<input
+type="text"
+id="searchTest"
+placeholder="🔍 Search Test..."
+onkeyup="filterTests()"
+style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;">
 
-<option value="CBC Test" data-price="350">CBC Test</option>
-<option value="Blood Sugar Test" data-price="150">Blood Sugar Test</option>
-<option value="Thyroid Profile" data-price="650">Thyroid Profile</option>
-<option value="Lipid Profile" data-price="700">Lipid Profile</option>
-<option value="Vitamin D Test" data-price="1200">Vitamin D Test</option>
-<option value="HbA1c Test" data-price="450">HbA1c Test</option>
+<div
+id="testContainer"
+style="max-height:220px;overflow-y:auto;border:1px solid #ccc;border-radius:8px;padding:10px;background:#fafafa;">
 
-</select>
+<label><input type="checkbox" value="CBC Test" data-price="350" onchange="calculateTotal()"> CBC Test — ₹350</label><br>
 
-<input id="price" type="text" placeholder="💰 Test Price"
-style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;background:#f5f5f5;" readonly>
+<label><input type="checkbox" value="Blood Sugar Test" data-price="150" onchange="calculateTotal()"> Blood Sugar Test — ₹150</label><br>
+
+<label><input type="checkbox" value="Thyroid Profile" data-price="650" onchange="calculateTotal()"> Thyroid Profile — ₹650</label><br>
+
+<label><input type="checkbox" value="Lipid Profile" data-price="700" onchange="calculateTotal()"> Lipid Profile — ₹700</label><br>
+
+<label><input type="checkbox" value="Vitamin D Test" data-price="1200" onchange="calculateTotal()"> Vitamin D Test — ₹1200</label><br>
+
+<label><input type="checkbox" value="HbA1c Test" data-price="450" onchange="calculateTotal()"> HbA1c Test — ₹450</label><br>
+
+<label><input type="checkbox" value="Liver Function Test" data-price="800" onchange="calculateTotal()"> Liver Function Test — ₹800</label><br>
+
+<label><input type="checkbox" value="Kidney Function Test" data-price="750" onchange="calculateTotal()"> Kidney Function Test — ₹750</label><br>
+
+</div>
+
+<input
+id="totalAmount"
+type="text"
+placeholder="💰 Total Amount"
+readonly
+style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ccc;background:#f5f5f5;font-weight:bold;">
 
 <select id="payment"
 style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;" required>
