@@ -464,15 +464,55 @@ style="width:100%;padding:14px;background:#0b72b9;color:white;border:none;border
 </div>
 
 <script>
+
+function updatePrice(){
+
+var test=document.getElementById("test");
+var price=test.options[test.selectedIndex].getAttribute("data-price");
+
+if(price){
+document.getElementById("price").value="₹"+price;
+}else{
+document.getElementById("price").value="";
+}
+
+}
+
 function sendWhatsApp(){
+
 var name=document.getElementById("name").value;
 var mobile=document.getElementById("mobile").value;
+var age=document.getElementById("age").value;
+var doctor=document.getElementById("doctor").value;
+var test=document.getElementById("test").value;
+var price=document.getElementById("price").value;
+var payment=document.getElementById("payment").value;
+var address=document.getElementById("address").value;
 var date=document.getElementById("date").value;
 
-var msg="📋 New Appointment%0A%0A👤 Name: "+name+"%0A📞 Mobile: "+mobile+"%0A📅 Date: "+date;
+var status="Pending";
+
+if(payment=="Online Payment"){
+status="Completed";
+}
+
+var msg=
+"📋 *NEW PRIME LAB APPOINTMENT*%0A%0A"+
+"👤 Patient Name : "+name+
+"%0A📞 Mobile : "+mobile+
+"%0A🎂 Age : "+age+
+"%0A👨‍⚕️ Doctor / Self : "+doctor+
+"%0A%0A🧪 Test : "+test+
+"%0A💰 Amount : "+price+
+"%0A%0A💳 Payment : "+payment+
+"%0A✅ Payment Status : "+status+
+"%0A%0A📍 Address : "+address+
+"%0A📅 Preferred Date : "+date;
 
 window.open("https://wa.me/918712366855?text="+msg,"_blank");
+
 }
+
 </script>
 
 
