@@ -423,6 +423,25 @@ style="border-radius:10px;">
 
 </div>
 <textarea id="address"
+<div style="margin-top:10px;">
+
+<input
+id="location"
+type="text"
+placeholder="📍 Current Location"
+readonly
+style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;">
+
+<button
+type="button"
+onclick="getLocation()"
+style="width:100%;padding:12px;background:#28a745;color:white;border:none;border-radius:8px;font-size:16px;">
+
+📍 Get Current Location
+
+</button>
+
+</div>
 placeholder="📍 Full Address"
 style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;height:90px;"
 required></textarea>
@@ -492,7 +511,7 @@ var doctor=document.getElementById("doctor").value;
 var payment=document.getElementById("payment").value;
 
 var address=document.getElementById("address").value;
-
+var location=document.getElementById("location").value;
 var date=document.getElementById("date").value;
 
 var amount=document.getElementById("totalAmount").value;
@@ -515,10 +534,36 @@ msg+="%0A💳 Payment : "+payment;
 msg+="%0A✅ Payment Status : "+status;
 
 msg+="%0A🏠 Address : "+address;
-
+msg+="%0A📍 Location : "+location;
 msg+="%0A📅 Date : "+date;
 
 window.open("https://wa.me/918712366855?text="+msg,"_blank");
+
+}
+function getLocation(){
+
+    if(navigator.geolocation){
+
+        navigator.geolocation.getCurrentPosition(function(position){
+
+            let lat = position.coords.latitude;
+            let lng = position.coords.longitude;
+
+            let map="https://www.google.com/maps?q="+lat+","+lng;
+
+            document.getElementById("location").value=map;
+
+        },function(){
+
+            alert("Location Permission Denied");
+
+        });
+
+    }else{
+
+        alert("Geolocation not supported");
+
+    }
 
 }
 document.getElementById("payment").addEventListener("change", function () {
