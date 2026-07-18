@@ -521,7 +521,19 @@ msg+="%0A📅 Date : "+date;
 window.open("https://wa.me/918712366855?text="+msg,"_blank");
 
 }
+document.getElementById("payment").addEventListener("change", function () {
 
+    var qr = document.getElementById("qrSection");
+
+    if (this.value === "Online Payment") {
+        qr.style.display = "block";
+    } else {
+        qr.style.display = "none";
+    }
+
+});
+
+document.getElementById("qrSection").style.display = "none";
 </script>
 
 
