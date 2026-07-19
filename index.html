@@ -611,7 +611,13 @@ msg+="%0A📍 Location : "+location;
 msg+="%0A📅 Date : "+date;
 
 window.open("https://wa.me/918712366855?text="+msg,"_blank");
-
+alert(
+"✅ Appointment Submitted Successfully\n\n" +
+"📋 Booking ID: PLD-" + Math.floor(1000 + Math.random() * 9000) + "\n\n" +
+"⏳ Your Appointment Request is Under Verification.\n\n" +
+"📞 Our Team Will Contact You Shortly.\n\n" +
+"🏥 Thank You For Choosing Prime Lab Diagnostics."
+);
 }
 function getLocation(){
 
