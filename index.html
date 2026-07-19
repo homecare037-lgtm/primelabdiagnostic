@@ -422,6 +422,12 @@ style="border-radius:10px;">
 </p>
 
 </div>
+<a id="payNowBtn"
+href="#"
+target="_blank"
+style="display:none;background:#5f259f;color:#fff;padding:12px;margin-top:12px;border-radius:8px;text-decoration:none;font-weight:bold;text-align:center;">
+💳 Pay Now with PhonePe
+</a>
 <textarea id="address"
 placeholder="📍 Full Address"
 style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;height:90px;"
@@ -495,7 +501,10 @@ tests.push(cb.value);
 });
 
 document.getElementById("totalAmount").value="₹"+total;
+let amount = total;
 
+document.getElementById("payNowBtn").href =
+"phonepe://pay?pa=9542658513-2@axl&pn=Prime%20Lab%20Diagnostics&am="+amount+"&cu=INR";
 window.selectedTests=tests.join(", ");
 
 }
@@ -568,16 +577,20 @@ function getLocation(){
 document.getElementById("payment").addEventListener("change", function () {
 
     var qr = document.getElementById("qrSection");
+    var payBtn = document.getElementById("payNowBtn");
 
     if (this.value === "Online Payment") {
         qr.style.display = "block";
+        payBtn.style.display = "block";
     } else {
         qr.style.display = "none";
+        payBtn.style.display = "none";
     }
 
 });
 
 document.getElementById("qrSection").style.display = "none";
+document.getElementById("payNowBtn").style.display = "none";
 </script>
 
 
