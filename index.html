@@ -430,6 +430,17 @@ id="totalAmount"
 type="text"
 placeholder="💰 Total Amount"
 readonly
+<input id="discount"
+type="number"
+placeholder="🎁 Discount ₹"
+onkeyup="calculateTotal()"
+style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;">
+
+<input id="finalAmount"
+type="text"
+placeholder="💰 Final Amount"
+readonly
+style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;background:#e8f5e9;font-weight:bold;">
 style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ccc;background:#f5f5f5;font-weight:bold;">
 
 <select id="payment"
@@ -545,7 +556,15 @@ tests.push(cb.value);
 
 });
 
+let discount=parseInt(document.getElementById("discount").value)||0;
+
+let final=total-discount;
+
+if(final<0) final=0;
+
 document.getElementById("totalAmount").value="₹"+total;
+
+document.getElementById("finalAmount").value="₹"+final;
 let amount = total;
 
 document.getElementById("payNowBtn").href =
@@ -568,7 +587,7 @@ var location=document.getElementById("location").value;
 var date=document.getElementById("date").value;
 
 var amount=document.getElementById("totalAmount").value;
-
+var finalAmount=document.getElementById("finalAmount").value;
 var status=(payment=="Online Payment")?"Completed":"Pending";
 
 var msg="📋 *NEW PRIME LAB APPOINTMENT*%0A%0A";
@@ -581,7 +600,9 @@ msg+="%0A👨‍⚕️ Doctor / Self : "+doctor;
 msg+="%0A%0A🧪 Tests : "+window.selectedTests;
 
 msg+="%0A💰 Total Amount : "+amount;
+msg+="%0A🎁 Discount : ₹"+document.getElementById("discount").value;
 
+msg+="%0A💵 Final Amount : "+finalAmount;
 msg+="%0A💳 Payment : "+payment;
 
 msg+="%0A✅ Payment Status : "+status;
