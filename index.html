@@ -584,6 +584,8 @@ function sendWhatsApp(){
 
 var name=document.getElementById("name").value;
 var mobile=document.getElementById("mobile").value;
+var email=document.getElementById("email").value;
+
 var age=document.getElementById("age").value;
 var 
 
@@ -629,7 +631,7 @@ fetch("https://script.google.com/macros/s/AKfycbw-IQdQjEAMnzD_QitG3zGuTtxGSwneJg
     bookingId: "PLD-" + Math.floor(1000 + Math.random() * 9000),
     date: date,
     name: name,
-    mobile: mobile,
+    mobile: mobile,email:email,
     age: age,gender:gender,
     doctor: doctor,
     tests: window.selectedTests,
