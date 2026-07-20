@@ -603,7 +603,24 @@ msg+="%0A✅ Payment Status : "+status;
 msg+="%0A🏠 Address : "+address;
 msg+="%0A📍 Location : "+location;
 msg+="%0A📅 Date : "+date;
-
+fetch("https://script.google.com/macros/s/AKfycbw-IQdQjEAMnzD_QitG3zGuTtxGSwneJg4o0uE6JuXMAoBPL5U_REY51XO4MgdvPGMHxg/exec",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({
+bookingId:"PLD-"+Math.floor(1000+Math.random()*9000),
+date:date,
+name:name,
+mobile:mobile,
+age:age,
+doctor:doctor,
+tests:window.selectedTests,
+amount:finalAmount,
+payment:payment,
+status:status,
+address:address,
+location:location
+})
+});
 window.open("https://wa.me/918712366855?text="+msg,"_blank");
 }
 function getLocation(){
