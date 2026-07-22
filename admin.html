@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Prime Lab Admin</title>
 
+<style>
+
+body{
+font-family:Arial,sans-serif;
+background:#f5f7fb;
+margin:0;
+padding:20px;
+}
+
+.container{
+max-width:450px;
+margin:auto;
+background:#fff;
+padding:25px;
+border-radius:12px;
+box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+h2{
+text-align:center;
+color:#007BFF;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+border:1px solid #ccc;
+border-radius:8px;
+box-sizing:border-box;
+}
+
+button{
+width:100%;
+padding:12px;
+background:#007BFF;
+color:#fff;
+border:none;
+border-radius:8px;
+font-size:16px;
+cursor:pointer;
+margin-top:10px;
+}
+
+button:hover{
+background:#0056b3;
+}
+
+#panel{
+display:none;
+margin-top:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>🔐 Prime Lab Admin</h2>
+
+<input type="text" id="username" placeholder="Username">
+
+<input type="password" id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<div id="panel">
+
+<hr>
+
+<h3>📤 Upload Report</h3>
+
+<input type="tel" id="mobile" placeholder="Patient Mobile Number">
+
+<input type="file" id="pdf" accept=".pdf">
+
+<button>⬆️ Upload Report</button>
+
+</div>
+
+</div>
+
+<script>
+
+function login(){
+
+let user=document.getElementById("username").value;
+let pass=document.getElementById("password").value;
+
+if(user=="admin" && pass=="primelab123"){
+
+document.getElementById("panel").style.display="block";
+
+alert("Login Successful");
+
+}else{
+
+alert("Wrong Username or Password");
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
