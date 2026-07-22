@@ -315,22 +315,20 @@ function searchTests() {
 </script>
 
 
-<h2>📄 Download Report</h2>
+<script>
+function downloadReport(){
 
-<p>Enter your Report ID to download your report.</p>
+let mobile = document.getElementById("reportMobile").value.trim();
 
-<input type="text"
-placeholder="Enter Report ID"
-style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ccc;">
+if(mobile==""){
+alert("Please Enter Mobile Number");
+return;
+}
 
-<button
-style="width:100%;padding:12px;background:#007BFF;color:white;border:none;border-radius:8px;font-size:16px;">
-⬇️ Download Report
-</button>
+alert("Searching Report for : " + mobile);
 
-<p style="font-size:14px;color:#666;text-align:center;margin-top:10px;">
-Online Report Service will be available soon.
-</p>
+}
+</script>
 
 </div>
 <div class="card" id="appointment">
