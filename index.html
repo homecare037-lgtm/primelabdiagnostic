@@ -340,16 +340,31 @@ Enter the same mobile number used while booking your appointment.
 </div>
 
 <script>
-function downloadReport(){
+async function downloadReport() {
 
-let mobile = document.getElementById("reportMobile").value.trim();
+  let mobile = document.getElementById("reportMobile").value.trim();
 
-if(mobile==""){
-alert("Please Enter Mobile Number");
-return;
-}
+  if (mobile == "") {
+    alert("Please Enter Mobile Number");
+    return;
+  }
 
-alert("Searching Report for : " + mobile);
+  let url = "https://script.google.com/macros/s/AKfycbzEXNr73OHYa8N0vnLk7EgHfbI2W-jPzoE7il1PqDu0E4IZPIrH1beAQd33SOsof5l1nw/exec?mobile=" + encodeURIComponent(mobile);
+
+  try {
+
+    let response = await fetch(url);
+    let result = await response.text();
+
+    if (result == "NOT FOUND") {
+      alert("Report Not Found");
+    } else {
+      window.open(result, "_blank");
+    }
+
+  } catch (err) {
+    alert("Server Error");
+  }
 
 }
 </script>
