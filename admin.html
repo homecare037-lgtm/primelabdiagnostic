@@ -84,7 +84,35 @@ margin-top:20px;
 
 <input type="file" id="pdf" accept=".pdf">
 
-<button>⬆️ Upload Report</button>
+<button onclick="uploadReport()">⬆️ Upload Report</button>
+
+<script>
+async function uploadReport(){
+
+let mobile=document.getElementById("mobile").value;
+let pdf=document.getElementById("pdf").files[0];
+
+if(mobile=="" || !pdf){
+alert("Enter Mobile Number and Choose PDF");
+return;
+}
+
+let formData=new FormData();
+
+formData.append("mobile",mobile);
+formData.append("pdf",pdf);
+
+let response=await fetch("https://script.google.com/macros/s/AKfycbzEXNr73OHYa8N0vnLk7EgHfbI2W-jPzoE7il1PqDu0E4IZPIrH1beAQd33SOsof5l1nw/exec",{
+method:"POST",
+body:formData
+});
+
+let result=await response.text();
+
+alert(result);
+
+}
+</script>
 
 </div>
 
