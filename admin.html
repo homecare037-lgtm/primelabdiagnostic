@@ -89,27 +89,45 @@ margin-top:20px;
 <script>
 async function uploadReport(){
 
-let mobile=document.getElementById("mobile").value;
-let pdf=document.getElementById("pdf").files[0];
+let mobile = document.getElementById("mobile").value;
+let pdf = document.getElementById("pdf").files[0];
 
 if(mobile=="" || !pdf){
 alert("Enter Mobile Number and Choose PDF");
 return;
 }
 
-let formData=new FormData();
+let reader = new FileReader();
 
-formData.append("mobile",mobile);
-formData.append("pdf",pdf);
+reader.onload = async function(){
 
-let response=await fetch("https://script.google.com/macros/s/AKfycbzEXNr73OHYa8N0vnLk7EgHfbI2W-jPzoE7il1PqDu0E4IZPIrH1beAQd33SOsof5l1nw/exec",{
+let base64 = reader.result.split(",")[1];
+
+let response = await fetch("https://script.google.com/macros/s/AKfycbzEXNr73OHYa8N0vnLk7EgHfbI2W-jPzoE7il1PqDu0E4IZPIrH1beAQd33SOsof5l1nw/exec",{
+
 method:"POST",
-body:formData
+
+headers:{
+"Content-Type":"application/json"
+},
+
+body:JSON.stringify({
+
+mobile:mobile,
+fileName:pdf.name,
+fileData:base64
+
+})
+
 });
 
-let result=await response.text();
+let result = await response.text();
 
 alert(result);
+
+};
+
+reader.readAsDataURL(pdf);
 
 }
 </script>
