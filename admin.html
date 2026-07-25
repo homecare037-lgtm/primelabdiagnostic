@@ -84,7 +84,7 @@ margin-top:20px;
 
 <input type="file" id="pdf" accept=".pdf">
 
-<button type="button" onclick="uploadReport(); return false;">⬆️ Upload Report</button>
+<button type="button" onclick="alert('Button Working'); uploadReport();">⬆️ Upload Report</button>
 
 <script>
 async function uploadReport(){
@@ -106,6 +106,7 @@ reader.onload = async function(){
 let base64 = reader.result.split(",")[1];
 
 let response = await fetch("https://script.google.com/macros/s/AKfycbwJKr3bIoXDMxXf2eLIJiIgVzz1zqFP6kzIeMgb8I3Kty-Rt3ZU32N-UwsE2e5Gcf48/exec",{
+
 
 method:"POST",
 
