@@ -326,6 +326,11 @@ type="tel"
 placeholder="📞 Enter Mobile Number"
 style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ccc;">
 
+<input
+id="reportDate"
+type="date"
+style="width:100%;padding:12px;margin:10px 0;border-radius:8px;border:1px solid #ccc;">
+
 <button
 type="button"
 onclick="downloadReport()"
@@ -344,14 +349,23 @@ async function downloadReport() {
 
   let mobile = document.getElementById("reportMobile").value.trim();
 
-  if (mobile == "") {
+let reportDate = document.getElementById("reportDate").value;
+  
+if (mobile == "") {
     alert("Please Enter Mobile Number");
     return;
   }
 
-  let url = "https://script.google.com/macros/s/AKfycbzEXNr73OHYa8N0vnLk7EgHfbI2W-jPzoE7il1PqDu0E4IZPIrH1beAQd33SOsof5l1nw/exec?mobile=" + encodeURIComponent(mobile);
+if (mobile == "" || reportDate == "") {
+    alert("Please Enter Mobile Number and Report Date");
+    return;
+}
 
-  try {
+  let url = "https://script.google.com/macros/s/AKfycbzEXNr73OHYa8N0vnLk7EgHfbI2W-jPzoE7il1PqDu0E4IZPIrH1beAQd33SOsof5l1nw/exec?mobile=" + encodeURIComponent(mobile);
++ "&date="
++ encodeURIComponent(reportDate);
+ 
+ try {
 
     let response = await fetch(url);
     let result = await response.text();
