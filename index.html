@@ -1791,31 +1791,17 @@ alert(
 "🏥 Thank You For Choosing Prime Lab Diagnostics."
 );
 }
-function getLocation(){
+function getLocation() {
+    let address = document.getElementById("address").value.trim();
 
-    if(navigator.geolocation){
-
-        navigator.geolocation.getCurrentPosition(function(position){
-
-            let lat = position.coords.latitude;
-            let lng = position.coords.longitude;
-
-            let map="https://www.google.com/maps?q="+lat+","+lng;
-
-            document.getElementById("location").value=map;
-
-        },function(){
-
-            alert("Location Permission Denied");
-
-        });
-
-    }else{
-
-        alert("Geolocation not supported");
-
+    if (address === "") {
+        alert("Please enter patient address first.");
+        return;
     }
 
+    let mapLink = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
+
+    document.getElementById("location").value = mapLink;
 }
 document.getElementById("payment").addEventListener("change", function () {
 
