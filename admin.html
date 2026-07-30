@@ -77,7 +77,49 @@ margin-top:20px;
 <div id="panel">
 
 <hr>
+<hr>
 
+<h3>🩸 Test Management</h3>
+
+<input 
+type="text" 
+id="searchTest" 
+placeholder="🔍 Search Test">
+
+<button onclick="searchTest()">Search</button>
+
+<div id="testResult"></div>
+
+<h4>✏️ Edit Test Price</h4>
+
+<input 
+type="text" 
+id="editName" 
+placeholder="Test Name">
+
+<input 
+type="number" 
+id="editPrice" 
+placeholder="New Price">
+
+<button onclick="saveTest()">💾 Save</button>
+
+
+<h4>➕ Add New Test</h4>
+
+<input 
+type="text" 
+id="newTestName" 
+placeholder="New Test Name">
+
+<input 
+type="number" 
+id="newTestPrice" 
+placeholder="Price">
+
+<button onclick="addTest()">➕ Add Test</button>
+
+<hr>
 <h3>📤 Upload Report</h3>
 
 <input type="tel" id="mobile" placeholder="Patient Mobile Number">
