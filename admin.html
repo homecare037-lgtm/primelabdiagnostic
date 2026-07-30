@@ -210,7 +210,28 @@ alert("Wrong Username or Password");
 
 }
 let tests = [];
+fetch("index.html")
+.then(response => response.text())
+.then(data => {
 
+let parser = new DOMParser();
+
+let html = parser.parseFromString(data,"text/html");
+
+let checkboxes = html.querySelectorAll('input[type="checkbox"][data-price]');
+
+checkboxes.forEach(item => {
+
+tests.push({
+name: item.parentElement.textContent.trim(),
+price: item.getAttribute("data-price")
+});
+
+});
+
+console.log(tests);
+
+});
 // Search Test
 function searchTest(){
 
