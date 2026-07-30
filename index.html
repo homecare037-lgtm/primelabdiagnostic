@@ -1799,7 +1799,7 @@ function getLocation() {
         return;
     }
 
-    let mapLink = "https://www.google.com/maps/search/?api=1&query=" + encodeURIComponent(address);
+  let mapLink = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(address);
 
     document.getElementById("location").value = mapLink;
 }
