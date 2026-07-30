@@ -209,7 +209,81 @@ alert("Wrong Username or Password");
 }
 
 }
+let tests = [];
 
+// Search Test
+function searchTest(){
+
+let search = document.getElementById("searchTest").value.toLowerCase();
+
+let result = "";
+
+tests.forEach(function(test){
+
+if(test.name.toLowerCase().includes(search)){
+
+result += `
+<div>
+${test.name} - ₹${test.price}
+<button onclick="editTest('${test.name}',${test.price})">
+✏️ Edit
+</button>
+</div>
+<br>
+`;
+
+}
+
+});
+
+document.getElementById("testResult").innerHTML = result;
+
+}
+
+
+// Edit Button Click
+function editTest(name,price){
+
+document.getElementById("editName").value = name;
+
+document.getElementById("editPrice").value = price;
+
+}
+
+
+// Save Test
+function saveTest(){
+
+let name = document.getElementById("editName").value;
+
+let price = document.getElementById("editPrice").value;
+
+
+alert(name + " price updated to ₹" + price);
+
+}
+
+
+// Add New Test
+function addTest(){
+
+let name = document.getElementById("newTestName").value;
+
+let price = document.getElementById("newTestPrice").value;
+
+
+if(name=="" || price==""){
+
+alert("Enter Test Name and Price");
+
+return;
+
+}
+
+
+alert(name + " Added ₹" + price);
+
+}
 </script>
 
 </body>
