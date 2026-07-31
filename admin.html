@@ -273,17 +273,32 @@ document.getElementById("editPrice").value = price;
 
 
 // Save Test
+
 function saveTest(){
 
-let name = document.getElementById("editName").value;
+    let name = document.getElementById("editName").value;
+    let price = document.getElementById("editPrice").value;
 
-let price = document.getElementById("editPrice").value;
+    if(name=="" || price==""){
+        alert("Enter Test Name and Price");
+        return;
+    }
 
+    let index = tests.findIndex(test => test.name == name);
 
-alert(name + " price updated to ₹" + price);
+    if(index !== -1){
+
+        tests[index].price = price;
+
+        alert("Updated Successfully: " + name + " ₹" + price);
+
+    }else{
+
+        alert("Test not found");
+
+    }
 
 }
-
 
 // Add New Test
 function addTest(){
