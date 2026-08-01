@@ -1623,12 +1623,36 @@ style="border-radius:10px;">
 </p>
 
 </div>
-<a id="payNowBtn"
+<div id="payNowBtn" style="display:none;text-align:center;margin-top:15px;">
+
+<h3>💳 Choose Payment App</h3>
+
+<a id="phonepeBtn"
 href="#"
 target="_blank"
-style="display:none;background:#5f259f;color:#fff;padding:12px;margin-top:12px;border-radius:8px;text-decoration:none;font-weight:bold;text-align:center;">
-💳 Pay Now with PhonePe
+style="display:block;background:#5f259f;color:#fff;padding:12px;margin:8px 0;border-radius:8px;text-decoration:none;font-weight:bold;">
+📱 Pay with PhonePe
 </a>
+
+<a id="gpayBtn"
+href="#"
+target="_blank"
+style="display:block;background:#4285F4;color:#fff;padding:12px;margin:8px 0;border-radius:8px;text-decoration:none;font-weight:bold;">
+💙 Pay with Google Pay
+</a>
+
+<a id="paytmBtn"
+href="#"
+target="_blank"
+style="display:block;background:#00BAF2;color:#fff;padding:12px;margin:8px 0;border-radius:8px;text-decoration:none;font-weight:bold;">
+💳 Pay with Paytm
+</a>
+
+<p style="margin-top:10px;color:green;font-weight:bold;">
+✅ Debit Card / Credit Card users can also pay through their UPI app.
+</p>
+
+</div>
 <textarea id="address"
 placeholder="📍 Full Address"
 style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;height:90px;"
@@ -1712,8 +1736,13 @@ document.getElementById("totalAmount").value="₹"+total;
 document.getElementById("finalAmount").value="₹"+final;
 let amount = final;
 
-document.getElementById("payNowBtn").href =
-"phonepe://pay?pa=9542658513-2@axl&pn=Prime%20Lab%20Diagnostics&am="+amount+"&cu=INR";
+let upi = "upi://pay?pa=9542658513-2@axl&pn=Prime%20Lab%20Diagnostics&am="+amount+"&cu=INR";
+
+document.getElementById("phonepeBtn").href = upi;
+document.getElementById("gpayBtn").href = upi;
+document.getElementById("paytmBtn").href = upi;
+
+window.selectedTests = tests.join(", ");
 window.selectedTests=tests.join(", ");
 
 }
