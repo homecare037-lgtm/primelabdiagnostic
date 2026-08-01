@@ -1768,7 +1768,23 @@ var date=document.getElementById("date").value;
 
 var amount=document.getElementById("totalAmount").value;
 var finalAmount=document.getElementById("finalAmount").value;
-var status=(payment=="Online Payment")?"Completed":"Pending";
+// Payment Status
+var status = "Pending";
+
+// Online Payment selected
+if (payment == "Online Payment") {
+
+    let paid = confirm(
+        "Have you completed the payment?\n\n" +
+        "OK = Payment Completed\n" +
+        "Cancel = Payment Pending"
+    );
+
+    if (paid) {
+        status = "Completed";
+    }
+
+}
 
 var msg="📋 *NEW PRIME LAB APPOINTMENT*%0A%0A";
 
