@@ -2341,7 +2341,23 @@ toggleAI();
 break;
 
 case "bill":
-response="💰 My Bill feature is coming soon. Soon you can view your bill using your Mobile Number and Booking Date.";
+
+response = `
+<h3>💰 My Bill</h3>
+
+<input id="billMobile" type="tel"
+placeholder="📞 Enter Mobile Number"
+style="width:100%;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:8px;">
+
+<input id="billDate" type="date"
+style="width:100%;padding:10px;margin:8px 0;border:1px solid #ccc;border-radius:8px;">
+
+<button onclick="searchBill()"
+style="width:100%;padding:10px;background:#0B72B9;color:#fff;border:none;border-radius:8px;cursor:pointer;">
+🔍 Search Bill
+</button>
+`;
+
 break;
 
 case "price":
@@ -2362,7 +2378,19 @@ response="Hello 👋";
 document.getElementById("aiResponse").innerHTML=response;
 
 }
+function searchBill(){
 
+let mobile = document.getElementById("billMobile").value.trim();
+let date = document.getElementById("billDate").value;
+
+if(mobile=="" || date==""){
+alert("Please enter Mobile Number and Booking Date");
+return;
+}
+
+alert("My Bill feature will be connected with Google Sheet in the next step.");
+
+}
 // Close AI when clicking outside
 document.addEventListener("click",function(e){
 
