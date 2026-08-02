@@ -2167,7 +2167,196 @@ behavior:"smooth"
 });
 }
 </script>
+<!-- ================= PRIME LAB AI ASSISTANT ================= -->
 
+<style>
+#aiButton{
+position:fixed;
+bottom:240px;
+right:20px;
+width:70px;
+height:70px;
+background:#0B72B9;
+color:#fff;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:28px;
+font-weight:bold;
+cursor:pointer;
+box-shadow:0 6px 18px rgba(0,0,0,.35);
+z-index:9999;
+transition:.3s;
+font-family:Arial,sans-serif;
+}
+
+#aiButton:hover{
+transform:scale(1.08);
+background:#095d96;
+}
+
+#aiChat{
+display:none;
+position:fixed;
+bottom:320px;
+right:20px;
+width:340px;
+max-width:90%;
+background:#fff;
+border-radius:15px;
+box-shadow:0 8px 25px rgba(0,0,0,.35);
+overflow:hidden;
+z-index:9999;
+font-family:Arial,sans-serif;
+}
+
+#aiHeader{
+background:#0B72B9;
+color:#fff;
+padding:15px;
+font-size:20px;
+font-weight:bold;
+text-align:center;
+}
+
+#aiBody{
+padding:15px;
+max-height:380px;
+overflow-y:auto;
+}
+
+.aiOption{
+width:100%;
+padding:12px;
+margin:8px 0;
+background:#0B72B9;
+color:#fff;
+border:none;
+border-radius:8px;
+cursor:pointer;
+font-size:15px;
+font-weight:bold;
+}
+
+.aiOption:hover{
+background:#095d96;
+}
+
+#aiResponse{
+margin-top:15px;
+padding:10px;
+background:#f5f5f5;
+border-radius:8px;
+font-size:15px;
+}
+</style>
+
+<div id="aiButton" onclick="toggleAI()">
+AI
+</div>
+
+<div id="aiChat">
+
+<div id="aiHeader">
+🏥 Prime Lab AI Assistant
+</div>
+
+<div id="aiBody">
+
+<p>👋 Welcome to <b>Prime Lab Diagnostics</b></p>
+
+<p>Please choose an option.</p>
+
+<button class="aiOption" onclick="aiReply('book')">
+📋 Book Appointment
+</button>
+
+<button class="aiOption" onclick="aiReply('report')">
+📄 Download Report
+</button>
+
+<button class="aiOption" onclick="aiReply('bill')">
+💰 My Bill
+</button>
+
+<button class="aiOption" onclick="aiReply('price')">
+🧪 Test Prices
+</button>
+
+<button class="aiOption" onclick="aiReply('contact')">
+📞 Contact Us
+</button>
+
+<div id="aiResponse"></div>
+
+</div>
+
+</div>
+<!-- ================= END PART 1 ================= -->
+<script>
+
+function toggleAI(){
+
+const chat=document.getElementById("aiChat");
+
+if(chat.style.display==="block"){
+chat.style.display="none";
+}else{
+chat.style.display="block";
+}
+
+}
+
+function aiReply(type){
+
+let response="";
+
+switch(type){
+
+case "book":
+response="📋 Please fill the Book Appointment form available on this page.";
+break;
+
+case "report":
+response="📄 To download your report, please enter your Mobile Number and Booking Date in the Download Report section.";
+break;
+
+case "bill":
+response="💰 My Bill feature is coming soon. Soon you can view your bill using your Mobile Number and Booking Date.";
+break;
+
+case "price":
+response="🧪 Please use the Search Test option on this page to check blood test prices.";
+break;
+
+case "contact":
+response="🏥 Prime Lab Diagnostics<br><br>📞 Call: <a href='tel:+918712366855'>8712366855</a><br><br>💬 WhatsApp: <a href='https://wa.me/918712366855' target='_blank'>Chat Now</a>";
+break;
+
+default:
+response="Hello 👋";
+}
+
+document.getElementById("aiResponse").innerHTML=response;
+
+}
+
+// Close AI when clicking outside
+document.addEventListener("click",function(e){
+
+const chat=document.getElementById("aiChat");
+const button=document.getElementById("aiButton");
+
+if(chat.style.display==="block" &&
+!chat.contains(e.target) &&
+!button.contains(e.target)){
+chat.style.display="none";
+}
+
+});
+
+</script>
 </body>
 
 </html>
