@@ -2378,7 +2378,7 @@ response="Hello 👋";
 document.getElementById("aiResponse").innerHTML=response;
 
 }
-function searchBill(){
+async function searchBill(){
 
 let mobile = document.getElementById("billMobile").value.trim();
 let date = document.getElementById("billDate").value;
@@ -2388,7 +2388,44 @@ alert("Please enter Mobile Number and Booking Date");
 return;
 }
 
-alert("My Bill feature will be connected with Google Sheet in the next step.");
+let url="https://script.google.com/macros/s/AKfycbw-IQdQjEAMnzD_QitG3zGuTtxGSwneJg4o0uE6JuXMAoBPL5U_REY51XO4MgdvPGMHxg/exec?mobile="
++encodeURIComponent(mobile)
++"&date="
++encodeURIComponent(date);
+
+try{
+
+let response=await fetch(url);
+let result=await response.text();
+
+if(result=="NOT FOUND"){
+document.getElementById("aiResponse").innerHTML=
+"❌ No bill found for the entered Mobile Number and Date.";
+return;
+}
+
+let bill=JSON.parse(result);
+
+document.getElementById("aiResponse").innerHTML=`
+<h3>💰 My Bill</h3>
+
+<b>🆔 Booking ID:</b> ${bill.bookingId}<br><br>
+
+<b>👤 Patient:</b> ${bill.patient}<br><br>
+
+<b>🧪 Tests:</b><br>${bill.tests}<br><br>
+
+<b>💰 Amount:</b> ₹${bill.amount}<br><br>
+
+<b>💳 Payment:</b> ${bill.payment}
+`;
+
+}catch(err){
+
+document.getElementById("aiResponse").innerHTML=
+"❌ Unable to connect to server.";
+
+}
 
 }
 // Close AI when clicking outside
