@@ -2345,7 +2345,10 @@ response="💰 My Bill feature is coming soon. Soon you can view your bill using
 break;
 
 case "price":
-response="🧪 Please use the Search Test option on this page to check blood test prices.";
+document.getElementById("testContainer").scrollIntoView({
+behavior:"smooth"
+});
+toggleAI();
 break;
 
 case "contact":
