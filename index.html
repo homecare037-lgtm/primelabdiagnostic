@@ -2271,10 +2271,12 @@ AI
 
 <button class="aiOption" onclick="aiReply('book')">
 📋 Book Appointment
+<div id="appointment">
 </button>
 
 <button class="aiOption" onclick="aiReply('report')">
 📄 Download Report
+<div id="downloadReport">
 </button>
 
 <button class="aiOption" onclick="aiReply('bill')">
@@ -2283,6 +2285,7 @@ AI
 
 <button class="aiOption" onclick="aiReply('price')">
 🧪 Test Prices
+<div id="testContainer">
 </button>
 
 <button class="aiOption" onclick="aiReply('contact')">
@@ -2324,7 +2327,10 @@ let response="";
 switch(type){
 
 case "book":
-response="📋 Please fill the Book Appointment form available on this page.";
+document.getElementById("appointment").scrollIntoView({
+behavior:"smooth"
+});
+toggleAI();
 break;
 
 case "report":
