@@ -1827,6 +1827,24 @@ fetch("https://script.google.com/macros/s/AKfycbw-IQdQjEAMnzD_QitG3zGuTtxGSwneJg
 });
 window.open("https://wa.me/918712366855?text="+msg,"_blank");
 
+// Patient WhatsApp Copy
+
+let patientMsg =
+"🏥 *Prime Lab Diagnostics*%0A%0A" +
+"✅ Appointment Booked Successfully%0A%0A" +
+"👤 Patient : " + name +
+"%0A🧪 Tests : " + window.selectedTests +
+"%0A💰 Total Amount : " + amount +
+"%0A💵 Final Amount : " + finalAmount +
+"%0A💳 Payment : " + payment +
+"%0A📅 Date : " + date +
+"%0A%0A📞 Prime Lab Diagnostics%0A8712366855" +
+"%0A%0A🙏 Thank You For Choosing Prime Lab Diagnostics.";
+
+setTimeout(function () {
+    window.open("https://wa.me/91" + mobile + "?text=" + patientMsg, "_blank");
+}, 1500);
+
 alert(
 "✅ Appointment Submitted Successfully\n\n" +
 "📋 Booking ID: PLD-" + Math.floor(1000 + Math.random() * 9000) + "\n\n" +
