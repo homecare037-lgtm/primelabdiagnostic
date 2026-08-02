@@ -314,7 +314,7 @@ function searchTests() {
 
 </script>
 
-<div class="card">
+<div class="card" id="downloadReport">
 
 <h2>📄 Download Report</h2>
 
@@ -2334,7 +2334,10 @@ toggleAI();
 break;
 
 case "report":
-response="📄 To download your report, please enter your Mobile Number and Booking Date in the Download Report section.";
+document.getElementById("downloadReport").scrollIntoView({
+behavior:"smooth"
+});
+toggleAI();
 break;
 
 case "bill":
