@@ -387,7 +387,7 @@ if (mobile == "" || reportDate == "") {
 <div class="card" id="appointment">
 <h2>📝 Book Appointment</h2>
 
-<form onsubmit="sendWhatsApp(); return false;">
+<form onsubmit="return validateForm();">
 
 <input id="name" type="text" placeholder="👤 Patient Name"
 style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;" required>
@@ -1865,6 +1865,66 @@ document.getElementById("payment").addEventListener("change", function () {
 
 document.getElementById("qrSection").style.display = "none";
 document.getElementById("payNowBtn").style.display = "none";
+
+function validateForm(){
+
+    if(document.getElementById("name").value.trim()==""){
+        alert("❌ Please Enter Patient Name");
+        document.getElementById("name").focus();
+        return false;
+    }
+
+    if(document.getElementById("mobile").value.trim()==""){
+        alert("❌ Please Enter Mobile Number");
+        document.getElementById("mobile").focus();
+        return false;
+    }
+
+    if(document.getElementById("age").value.trim()==""){
+        alert("❌ Please Enter Age");
+        document.getElementById("age").focus();
+        return false;
+    }
+
+    if(document.getElementById("gender").value==""){
+        alert("❌ Please Select Gender");
+        document.getElementById("gender").focus();
+        return false;
+    }
+
+    if(document.getElementById("doctor").value.trim()==""){
+        alert("❌ Please Enter Doctor Name");
+        document.getElementById("doctor").focus();
+        return false;
+    }
+
+    if(window.selectedTests=="" || window.selectedTests==undefined){
+        alert("❌ Please Select At Least One Test");
+        return false;
+    }
+
+    if(document.getElementById("payment").value==""){
+        alert("❌ Please Select Payment Method");
+        document.getElementById("payment").focus();
+        return false;
+    }
+
+    if(document.getElementById("address").value.trim()==""){
+        alert("❌ Please Enter Address");
+        document.getElementById("address").focus();
+        return false;
+    }
+
+    if(document.getElementById("date").value==""){
+        alert("❌ Please Select Appointment Date");
+        document.getElementById("date").focus();
+        return false;
+    }
+
+    sendWhatsApp();
+    return false;
+}
+
 </script>
 
 
