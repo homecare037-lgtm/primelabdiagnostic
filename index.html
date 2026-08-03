@@ -2407,20 +2407,161 @@ document.getElementById("aiResponse").innerHTML=
 return;
 }
 
-let bill=JSON.parse(result);
+document.getElementById("aiResponse").innerHTML = `
+<div id="billContent" style="
+background:#fff;
+padding:20px;
+border-radius:12px;
+box-shadow:0 0 10px rgba(0,0,0,.15);
+font-family:Arial,sans-serif;
+color:#222;">
 
-document.getElementById("aiResponse").innerHTML=`
-<h3>💰 My Bill</h3>
+<center>
 
-<b>🆔 Booking ID:</b> ${bill.bookingId}<br><br>
+<img src="logo.png" width="90">
 
-<b>👤 Patient:</b> ${bill.patient}<br><br>
+<h2 style="margin:8px 0;color:#0B72B9;">
+Prime Lab Diagnostics
+</h2>
 
-<b>🧪 Tests:</b><br>${bill.tests}<br><br>
+<p style="margin:0;font-size:14px;">
+#NTR Nagar Main Road,<br>
+LB Nagar,<br>
+Near Hanuman Temple Lane,<br>
+Hyderabad, Telangana - 500074
+</p>
 
-<b>💰 Amount:</b> ₹${bill.amount}<br><br>
+<p style="margin-top:8px;">
+📞 +91 8712366855<br>
+📧 primelabdiagnostic@gmail.com
+</p>
 
-<b>💳 Payment:</b> ${bill.payment}
+<hr>
+
+<h3 style="color:#0B72B9;">💰 MY BILL</h3>
+
+</center>
+
+<table style="width:100%;line-height:2;">
+
+<tr>
+<td><b>👤 Patient Name</b></td>
+<td>${bill.patient}</td>
+</tr>
+
+<tr>
+<td><b>📞 Mobile</b></td>
+<td>${bill.mobile}</td>
+</tr>
+
+<tr>
+<td><b>📧 Email</b></td>
+<td>${bill.email}</td>
+</tr>
+
+<tr>
+<td><b>🎂 Age</b></td>
+<td>${bill.age}</td>
+</tr>
+
+<tr>
+<td><b>🚻 Gender</b></td>
+<td>${bill.gender}</td>
+</tr>
+
+<tr>
+<td><b>👨‍⚕️ Doctor</b></td>
+<td>${bill.doctor}</td>
+</tr>
+
+<tr>
+<td><b>📅 Appointment Date</b></td>
+<td>${bill.date}</td>
+</tr>
+
+</table>
+
+<hr>
+
+<h3 style="color:#0B72B9;">
+🧪 Booked Tests
+</h3>
+
+<div style="
+background:#f7f7f7;
+padding:12px;
+border-radius:8px;
+white-space:pre-line;">
+${bill.tests}
+</div>
+
+<hr>
+
+<table style="width:100%;line-height:2;">
+
+<tr>
+<td><b>💰 Total Amount</b></td>
+<td>₹${bill.amount}</td>
+</tr>
+
+<tr>
+<td><b>💳 Payment Method</b></td>
+<td>${bill.payment}</td>
+</tr>
+
+<tr>
+<td><b>✅ Payment Status</b></td>
+<td>${bill.status}</td>
+</tr>
+
+<tr>
+<td><b>💵 Paid Status</b></td>
+<td>${bill.paidStatus}</td>
+</tr>
+
+</table>
+
+<hr>
+
+<h3 style="color:#0B72B9;">🏥 Prime Lab Diagnostics</h3>
+
+<p>
+#NTR Nagar Main Road<br>
+LB Nagar<br>
+Near Hanuman Temple Lane<br>
+Hyderabad, Telangana - 500074
+</p>
+
+<p>
+📞 +91 8712366855<br>
+📧 primelabdiagnostic@gmail.com
+</p>
+
+<hr>
+
+<center>
+
+<p>
+🙏 Thank You For Choosing
+<br>
+<b>Prime Lab Diagnostics</b>
+</p>
+
+<button onclick="downloadBill()"
+style="
+background:#0B72B9;
+color:#fff;
+border:none;
+padding:12px 25px;
+border-radius:8px;
+cursor:pointer;
+font-size:16px;">
+⬇️ Download PDF
+</button>
+
+</center>
+
+</div>
 `;
 
 }catch(err){
