@@ -2406,7 +2406,7 @@ document.getElementById("aiResponse").innerHTML=
 "❌ No bill found for the entered Mobile Number and Date.";
 return;
 }
-
+let bill = JSON.parse(result);
 document.getElementById("aiResponse").innerHTML = `
 <div id="billContent" style="
 background:#fff;
