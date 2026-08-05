@@ -2409,10 +2409,11 @@ return;
 let bill = JSON.parse(result);
 document.getElementById("aiResponse").innerHTML = `
 <div id="billContent" style="
+width:210mm;
+min-height:297mm;
 background:#fff;
-padding:20px;
-border-radius:12px;
-box-shadow:0 0 10px rgba(0,0,0,.15);
+padding:15mm;
+box-sizing:border-box;
 font-family:Arial,sans-serif;
 color:#222;">
 
@@ -2588,11 +2589,31 @@ chat.style.display="none";
 
 function downloadBill() {
 
-  const bill = document.getElementById("billContent");
+  const element = document.getElementById("billContent");
 
-  html2pdf()
-    .from(bill)
-    .save("PrimeLab_Bill.pdf");
+  const opt = {
+    margin: 5,
+    filename: "PrimeLab_Bill.pdf",
+    image: {
+      type: "jpeg",
+      quality: 1
+    },
+    html2canvas: {
+      scale: 3,
+      useCORS: true,
+      scrollY: 0
+    },
+    jsPDF: {
+      unit: "mm",
+      format: "a4",
+      orientation: "portrait"
+    },
+    pagebreak: {
+      mode: ["avoid-all", "css", "legacy"]
+    }
+  };
+
+  html2pdf().set(opt).from(element).save();
 
 }
 </script>
