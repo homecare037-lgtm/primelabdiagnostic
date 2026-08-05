@@ -2585,8 +2585,19 @@ chat.style.display="none";
 }
 
 });
+function downloadBill() {
 
+  const bill = document.getElementById("billContent");
+
+  html2pdf()
+    .from(bill)
+    .save("PrimeLab_Bill.pdf");
+
+}
 </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
 </body>
 
 </html>
