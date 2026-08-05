@@ -2409,11 +2409,10 @@ return;
 let bill = JSON.parse(result);
 document.getElementById("aiResponse").innerHTML = `
 <div id="billContent" style="
-width:210mm;
-min-height:297mm;
 background:#fff;
-padding:15mm;
-box-sizing:border-box;
+padding:20px;
+max-width:800px;
+margin:0 auto;
 font-family:Arial,sans-serif;
 color:#222;">
 
@@ -2592,24 +2591,16 @@ function downloadBill() {
   const element = document.getElementById("billContent");
 
   const opt = {
-    margin: 5,
+    margin: 10,
     filename: "PrimeLab_Bill.pdf",
-    image: {
-      type: "jpeg",
-      quality: 1
-    },
     html2canvas: {
-      scale: 3,
-      useCORS: true,
-      scrollY: 0
+      scale: 2,
+      useCORS: true
     },
     jsPDF: {
       unit: "mm",
       format: "a4",
       orientation: "portrait"
-    },
-    pagebreak: {
-      mode: ["avoid-all", "css", "legacy"]
     }
   };
 
