@@ -361,7 +361,9 @@ if (mobile == "" || reportDate == "") {
     return;
 }
 
-  let url = "https://script.google.com/macros/s/AKfycbzEXNr73OHYa8N0vnLk7EgHfbI2W-jPzoE7il1PqDu0E4IZPIrH1beAQd33SOsof5l1nw/exec?mobile=" + encodeURIComponent(mobile);
+  let url =
+"https://script.google.com/macros/s/AKfycbzEXNr73OHYa8N0vnLk7EgHfbI2W-jPzoE7il1PqDu0E4IZPIrH1beAQd33SOsof5l1nw/exec?mobile="
++ encodeURIComponent(mobile)
 + "&date="
 + encodeURIComponent(reportDate);
  
