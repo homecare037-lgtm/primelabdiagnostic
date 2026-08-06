@@ -153,8 +153,9 @@ reader.onload = async function(){
 
 let base64 = reader.result.split(",")[1];
 
-let response = await 
-fetch("https://script.google.com/macros/s/AKfycbzEXNr73OHYa8N0vnLk7EgHfbI2W-jPzoE7il1PqDu0E4IZPIrH1beAQd33SOsof5l1nw/exec",{
+alert("Sending Request...");
+
+let response = await fetch("https://script.google.com/macros/s/AKfycbzEXNr73OHYa8N0vnLk7EgHfbI2W-jPzoE7il1PqDu0E4IZPIrH1beAQd33SOsof5l1nw/exec",{
 
 method:"POST",
 
@@ -164,7 +165,6 @@ headers:{
 
 body:JSON.stringify({
 
-
 mobile: mobile,
 bookingDate: bookingDate,
 fileName: pdf.name,
@@ -173,7 +173,11 @@ fileData: base64
 })
 
 });
+
+alert("Request Sent");
+
 alert("Status: " + response.status);
+
 let result = await response.text();
 
 alert(result);
