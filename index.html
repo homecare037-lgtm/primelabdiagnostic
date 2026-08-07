@@ -1668,7 +1668,8 @@ type="text"
 placeholder="📍 Current Location"
 readonly
 style="width:100%;padding:12px;margin:8px 0;border-radius:8px;border:1px solid #ccc;">
-
+<input type="hidden" id="latitude">
+<input type="hidden" id="longitude">
 <button
 type="button"
 onclick="getLocation()"
@@ -1860,14 +1861,17 @@ alert(
 
 }
 function getLocation() {
+
     let address = document.getElementById("address").value.trim();
 
     if (address === "") {
-        alert("Please enter patient address first.");
+        alert("Please enter patient full address.");
         return;
     }
 
-  let mapLink = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(address);
+    let mapLink =
+        "https://www.google.com/maps/search/?api=1&query=" +
+        encodeURIComponent(address);
 
     document.getElementById("location").value = mapLink;
 }
