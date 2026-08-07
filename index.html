@@ -1772,8 +1772,12 @@ doctor=document.getElementById("doctor").value;
 
 var payment=document.getElementById("payment").value;
 
-var address=document.getElementById("address").value;
-var location=document.getElementById("location").value;
+var address = document.getElementById("address").value.trim();
+
+var location =
+"https://www.google.com/maps/search/?api=1&query=" +
+encodeURIComponent(address);
+
 var date=document.getElementById("date").value;
 
 var amount=document.getElementById("totalAmount").value;
