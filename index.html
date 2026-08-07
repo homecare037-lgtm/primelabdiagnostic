@@ -1941,21 +1941,23 @@ function validateForm(){
     }
 
     if(document.getElementById("address").value.trim()==""){
-        alert("❌ Please Enter Address");
-        document.getElementById("address").focus();
-        return false;
-    }
-
- document.getElementById("location").value =
-    "https://www.google.com/maps/search/?api=1&query=" +
-    encodeURIComponent(address);   if(document.getElementById("date").value==""){
-        alert("❌ Please Select Appointment Date");
-        document.getElementById("date").focus();
-        return false;
-    }
-
-    sendWhatsApp();
+    alert("❌ Please Enter Address");
+    document.getElementById("address").focus();
     return false;
+}
+
+if(document.getElementById("location").value.trim()==""){
+    getLocation();
+}
+
+if(document.getElementById("date").value==""){
+    alert("❌ Please Select Appointment Date");
+    document.getElementById("date").focus();
+    return false;
+}
+
+sendWhatsApp();
+return false;
 }
 
 </script>
