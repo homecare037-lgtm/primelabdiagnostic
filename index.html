@@ -1946,7 +1946,9 @@ function validateForm(){
         return false;
     }
 
-    if(document.getElementById("date").value==""){
+ document.getElementById("location").value =
+    "https://www.google.com/maps/search/?api=1&query=" +
+    encodeURIComponent(address);   if(document.getElementById("date").value==""){
         alert("❌ Please Select Appointment Date");
         document.getElementById("date").focus();
         return false;
