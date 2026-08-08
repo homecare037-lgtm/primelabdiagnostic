@@ -1869,20 +1869,20 @@ alert(
 
 }
 function getLocation() {
-    let address = document.getElementById("address").value.trim();
+    const address = document.getElementById("address").value.trim();
 
     if (address === "") {
-        alert("Please enter patient address first.");
+        alert("❌ Please enter patient address first.");
         return;
     }
 
-    let mapLink =
+    const mapLink =
         "https://www.google.com/maps/search/?api=1&query=" +
         encodeURIComponent(address);
 
     document.getElementById("location").value = mapLink;
 
-    alert("✅ Collection location set from address.");
+    alert("✅ Collection location added successfully.");
 }
 document.getElementById("payment").addEventListener("change", function () {
 
