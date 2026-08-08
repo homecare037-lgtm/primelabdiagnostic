@@ -1869,11 +1869,10 @@ alert(
 
 }
 function getLocation() {
-
     let address = document.getElementById("address").value.trim();
 
     if (address === "") {
-        alert("Please enter patient full address.");
+        alert("Please enter patient address first.");
         return;
     }
 
@@ -1882,6 +1881,8 @@ function getLocation() {
         encodeURIComponent(address);
 
     document.getElementById("location").value = mapLink;
+
+    alert("✅ Collection location set from address.");
 }
 document.getElementById("payment").addEventListener("change", function () {
 
